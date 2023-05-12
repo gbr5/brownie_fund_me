@@ -1,0 +1,26 @@
+dependencies:
+# - <organization/repo>@<vrsoin>
+# I had to use a different version than it was presented on the tutorial (1.1.1)
+- smartcontractkit/chainlink-brownie-contracts@0.2.2
+
+compiler:
+  solc:
+    remappings:
+      - '@chainlink=smartcontractkit/chainlink-brownie-contracts@0.2.2'
+
+dotenv: .env
+
+networks:
+  sepolia:
+    eth_usd_price_feed_address: "0x694AA1769357215DE4FAC081bf1f309aDC325306"
+    verify: True
+  mainnet-fork-dev:
+    eth_usd_price_feed_address: "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419"
+    verify: False
+  development:
+    verify: False
+  ganache-local:
+    verify: False
+
+wallets: 
+  from_key: ${SEPOLIA_PRIVATE_KEY}
